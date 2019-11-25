@@ -84,6 +84,7 @@ function endGame(){
       snake.head.y = 100;
       snake.vel = createVector(0, 0);
       keyCode = CONTROL;
+      score = 0;
       gameState = 1;
       startGame();
     }//when the replay button is pressed, all snake properties are reset and gameState is set back to 1
