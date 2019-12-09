@@ -49,7 +49,7 @@ function bubbleSort() {
 function loadBalls(num) { //prepares the bars to show up
 for(var i = 0; i < num; i++){
   //var barHeight = list[i] * 80;
-  var xpos = 0 + 30 * i;
+  var xpos = 100 + 30 * i;
   var red = random(0, 255);
   balls[i] = new Ball(xpos, 300, color(red, 0, 0), red);
   }

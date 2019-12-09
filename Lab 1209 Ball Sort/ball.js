@@ -17,19 +17,19 @@ class Ball {
 
   run(){
     this.render();
-    this.returnColor();
+    //this.returnColor();
     //this.set();
     //this.checkedges();
     //this.update();
   }
 
-  returnColor(){
-    return this.shade;
-  }
-
-  set(i){
-    this.loc.x = 0 + 30 * i;
-  }
+  // returnColor(){
+  //   return this.shade;
+  // }
+  //
+  // set(i){
+  //   this.loc.x = 0 + 30 * i;
+  // }
 
 //makes each ball bounce when it reaches any edge of the canvas
 //changes x velocity to the opposite sign when it hits the left or right
