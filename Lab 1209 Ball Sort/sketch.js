@@ -1,64 +1,50 @@
 //  Gabby Melamed
-// 	Lab 1023 Sort Bars
+// 	Lab 1209 Red Ball Sort
 //  This is a comment
 //  The setup function function is called once when your program begins
 
-var list = [];
-var balls = [];
-//var red = random(0, 255);
-//var numBars, barWidth;
-// function loadList(n){
-//   for(var i = 0; i < n; i++){//keeps adding numbers onto the array until i < n, the number of items in the array
-//     list.push(int(random(0, 10)));//pushes a random integer between 0 and 1000 into the array
-//   }
-// }//function generates a random array with as many numbers as the input is
+var balls = [];//global variable
 
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(255, 182, 193);
-
-  //barWidth = 20;
-  //numBars = width/barWidth;
-
-  //loadList(numBars);//loads an unsorted list of numbers
-  loadBalls(20);//displays bars on the screen with heights that are in order of the array of numbers
-  console.log(list);
-  frameRate(5);
+  loadBalls(20);//loads 20 balls
+  frameRate(4);//slows down the animation
+  for(var i = 0; i < balls.length; i++){
+    balls[i].render();
+  }//displays balls on screen
 }
 
 function draw() {
-  background(255, 182, 193);
-  runBalls();//makes the bars appear
-  bubbleSort();//sorts the bars and the list
+  bubbleSort();//sorts the balls from darkest red to lightest red
 }
 
-function bubbleSort() {
-    for(var j = 0; j < list.length; j++){
-      if(ball.shade[j] > ball.shade[j + 1]){
-        //swap(list, j, j + 1);//swaps numbers in the list
-        clear();
-        background(255, 182, 193);
-        swap(balls, j, j + 1);//swaps bars
-        loadBalls(20);
-        runBalls();
+function loadBalls(num) { //prepares the balls to show up
+  for(var i = 0; i < num; i++){
+    var xpos = 100 + 30 * i;
+    var red = random(0, 255);
+    balls[i] = new Ball(xpos, 300, color(red, 0, 0), red);
+  }
+}
+
+function update(){
+  for(var i = 0; i < balls.length; i++){ //displays balls unsorted
+    balls[i].set(i);
+  }
+  background(255, 182, 193);
+  for(var i = 0; i < balls.length; i++){ //resets background and displays sorted balls
+    balls[i].run();//makes the balls show up
+  }
+}
+
+function bubbleSort(){ //sorts balls by comparing two ball shades
+    for(var j = 0; j < balls.length - 1; j++){
+      if(balls[j].shade > balls[j + 1].shade){
+        swap(balls, j, j + 1);//swaps balls
+        update();
         }
     }
-}
-
-function loadBalls(num) { //prepares the bars to show up
-for(var i = 0; i < num; i++){
-  //var barHeight = list[i] * 80;
-  var xpos = 100 + 30 * i;
-  var red = random(0, 255);
-  balls[i] = new Ball(xpos, 300, color(red, 0, 0), red);
-  }
-}
-
-function runBalls() { //makes the bars show up
-  for(var i = 0; i < balls.length; i++){
-    balls[i].render();
-  }
 }
 
 function swap(list, a, b) {//swaps two values in array
