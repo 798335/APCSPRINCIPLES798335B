@@ -46,4 +46,4 @@ class Planet {
     ellipse (this.loc.x, this.loc.y, 40, 40);
   }
 
-}//  +++++++++++++++++++++++++++++++++++  End Planet Class
+}//  +++++++++++++++++++++++++++++++++++  End Planet Class.
