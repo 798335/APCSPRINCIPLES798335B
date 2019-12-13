@@ -1,4 +1,4 @@
-//  Gabrielle Melamed
+//  GTest
 // Lab 1212 Sliders
 var ships = []; //declares array
 var planet, sliderText, sliderVelocity, sliderAttraction, sliderNumberofShips; //declares the planet
